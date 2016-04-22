@@ -13,6 +13,7 @@ MIS:<br>
 Contact no.:<br>
 <input type="number" name="phone" maxlength="10" required>
 <br>
+<input type="email" name="email" placeholder="abc@example.com" pattern="^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9]+)*(@gmail.com|@coep.ac.in|@yahoo.com|@riseup.net)" title="Enter email-id from one of the following domains: coep.ac.in, gmail.com, yahoo.com, riseup.net" required><br>
 <input type="submit" name="submit" value="Submit"> 
 </form>
 
