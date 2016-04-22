@@ -9,11 +9,11 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "myDB";
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+// Create conection
+$con = new mysqli($servername, $username, $password);
 $sql = "CREATE DATABASE IF NOT EXISTS myDB";
-$conn->query($sql);
-$conn = new mysqli($servername, $username, $password, $dbname);
+$con->query($sql);
+$con = new mysqli($servername, $username, $password, $dbname);
 $sql = "CREATE TABLE student (
 
 	name VARCHAR(40) NOT NULL,
@@ -21,13 +21,13 @@ $sql = "CREATE TABLE student (
 	phone INT(10)
 	)";
 	
-$conn->query($sql);
-$conn = new mysqli($servername, $username, $password, $dbname);
+$con->query($sql);
+$con = new mysqli($servername, $username, $password, $dbname);
 $sql = "INSERT INTO student (name, mis, phone)
 VALUES ('$name', '$mis', '$phone')";
-mysqli_query($conn, $sql);
+mysqli_query($con, $sql);
 $sql = "SELECT name, mis, phone FROM student";
-$result = $conn->query($sql);
+$result = $con->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$conn->close();
+$con->close();
 echo "<html><body><br><form><input type='submit' name='submit' value='Submit another response' formaction='form.php'></form> </body></html>";
 
 ?> 
