@@ -10,7 +10,7 @@ Name:<br>
 MIS:<br>
 <input type = "text" name="mis" required><small>(9 digit number)</small><br>
 <br>
-Phone no.:<br>
+Contact no.:<br>
 <input type="number" name="phone" maxlength="10" required>
 <br>
 <input type="submit" name="submit" value="Submit"> 
