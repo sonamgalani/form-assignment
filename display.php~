@@ -1,0 +1,71 @@
+<?php
+$name = $mis = $phone = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = $_POST["name"];
+  $mis = $_POST["mis"];
+  $phone = $_POST["phone"];
+ }
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$db = "myDB";
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("\nConnection failed: " . $conn->connect_error);
+}
+echo "\nConnected successfully";
+
+$sql = "CREATE DATABASE IF NOT EXISTS myDB";
+if ($conn->query($sql) === TRUE) {
+    echo "\nDatabase created successfully";
+ }
+    
+   
+ else {
+    echo "\nError creating database: " . $conn->error;
+}
+if ($mysqli->select_db('myDB') === true) {
+	echo "YES";
+    // Create db
+}
+       $conn = new mysqli($servername, $username, $password, $dbname);
+ $sql = "CREATE TABLE MyGuests (
+
+	name VARCHAR(40) NOT NULL,
+	mis INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	phone INT(10)
+	)";
+	
+	if ($conn->query($sql) === TRUE) {
+		echo "\nTable MyGuests created successfully";
+	} else {
+		echo "\nError creating table: " . $conn->error;
+	}
+    $conn = new mysqli($servername, $username, $password, $dbname);
+$sql = "INSERT INTO MyGuests (name, mis, phone)
+VALUES ('$name', '$mis', '$phone')";
+if (mysqli_query($conn, $sql)) {
+	echo "\nNew record created successfully";
+} else {
+	echo "\nError: " . $sql . "<br>" . mysqli_error($conn);
+}
+/*$sql = "SELECT name, mis, phone FROM MyGuests";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "mis: " . $row["mis"]. " - Name: " . $row["name"]. "\n Phone: " . $row["phone"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}*/
+$conn->close();
+echo $name;
+echo $phone;
+echo $mis;
+
+?> 
